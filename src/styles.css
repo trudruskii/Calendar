@@ -1,0 +1,132 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(to top, #31ff06, black);
+}
+
+h1 {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 1rem; /* Adjust font size for smaller screens */
+}
+
+.calendar {
+    margin: auto;
+    width: 100%;
+    max-width: 380px;
+    padding: 1rem;
+    background: #b7b4b4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar nav {
+    display: flex;
+    align-items: center;
+}
+
+.calendar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+}
+
+.calendar ul li {
+    width: calc(100% / 7);
+    margin-top: 15px; /* Reduce margin for smaller screens */
+    position: relative;
+    z-index: 2;
+}
+
+#prev,
+#next {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#prev::before,
+#next::before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    border-color: white;
+}
+
+#next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#prev:hover::before,
+#next:hover::before {
+    border-color: #007f15;
+}
+
+.days {
+    font-weight: 600;
+}
+
+.dates li.today {
+    color: #fff;
+}
+
+.dates li.today::before {
+    content: "";
+    width: 1.5rem; /* Adjust size for smaller screens */
+    height: 1.5rem; /* Adjust size for smaller screens */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-110%, -50%);
+    background: #007f15;
+    border-radius: 50%;
+    z-index: -1;
+    padding: 2px;
+}
+
+.dates li.inactive {
+    color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    border-top: solid black;
+    width: 100%;
+    padding: 0.5em;
+    background-color: lightgray;
+    font-size: 16px;
+}
